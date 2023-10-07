@@ -1,0 +1,21 @@
+<form class="w-50 bg-main-light shadow rounded p-5 mt-5  mx-auto" [formGroup]="paymentData" (ngSubmit)="handelForm()">
+    <div class="form-item my-3">
+        <label for="Details" class="fw-bold mb-1">Details :</label>
+    <input type="text" id="Details" class="form-control" formControlName="details">
+    </div>
+
+    <div class="form-item my-3">
+        <label for="phone" class="fw-bold mb-1" >phone :</label>
+    <input type="tel" id="phone" class="form-control"formControlName="phone">
+    <div class="alert alert-danger" *ngIf="paymentData.get('phone')?.touched  && paymentData.get('phone')?.errors">
+        <p *ngIf="paymentData.get('phone')?.getError('pattern')">Enter a valid phone number)</p>
+    </div>
+    </div>
+
+    <div class="form-item my-3">
+        <label for="City" class="fw-bold mb-1">City :</label>
+    <input type="text" id="City" class="form-control" formControlName="city">
+    </div>
+    
+    <button class="main-btn btn my-3 px-3 py-2 mt-4 fw-bold">Checkout</button>
+</form>

@@ -1,0 +1,11 @@
+<section>
+    <div class="container">
+        <div class="row g-4 gap-4">            
+            <h2 class="text-center pt-5 text-main fw-bolder">All Brands</h2>
+                <div class="col-md-3 border px-3 mx-auto rounded rounded-2 brandsHover" style="width: 250px; height: 260px;"  *ngFor="let item of brandsData">
+                <img [src]="item.image" style="height: 200px;" alt="{{item.name}}" class="w-100" title="{{item.name}}">
+                <p class="text-center">{{item.name}}</p>
+            </div>
+        </div>
+    </div>
+</section>

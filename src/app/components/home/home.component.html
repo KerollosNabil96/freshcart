@@ -1,0 +1,68 @@
+<section class="pb-5 mt-5 pad">
+<div class="container">
+    <div class="row g-0">
+        <div class="col-md-9">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide>
+                    <img height="400" src="/assets/finalProject assets/images/slider-image-1.jpeg" alt="slider image 1">
+                </ng-template> 
+                <ng-template carouselSlide>
+                    <img height="400" src="/assets/finalProject assets/images/slider-image-2.jpeg" alt="slider image 2">
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img height="400" src="/assets/finalProject assets/images/slider2.jpg" alt="slider image 3">
+                </ng-template>   
+            </owl-carousel-o>
+
+
+
+        </div>
+
+
+        <div class="col-md-3">
+            <img height="200" src="/assets/finalProject assets/images/XCM_Manual_1396328_4379575_Egypt_EG_BAU_GW_DC_SL_Bags_Wallets_379x304_1X._SY304_CB650636675_.jpg" class="w-100" alt="img1">
+            <img height="200" src="/assets/finalProject assets/images/XCM_Manual_1533480_5305769_379x304_1X._SY304_CB616236518_.jpg" class="w-100" alt="img1">
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<section>
+    <owl-carousel-o [options]="mainSlider">
+
+        <ng-container *ngFor="let item of categoriesData">
+          <ng-template carouselSlide>
+            <img [src]="item.image" [alt]="item.name" [title]="item.name" height="260px">
+            <h3 class=" pt-2 fw-bold text-center text-main">{{item.name}}</h3>
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>
+</section>
+
+
+
+<section class="mx-3">
+    <input type="text" class="form-control m-auto w-75" placeholder="Search..." [(ngModel)]="term">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-2  g-4 productsHover rounded rounded-3" *ngFor="let item of productsData | searching: term ">
+                <div [routerLink]="['/details' , item.id]" role="button" routerLinkActive="router-link-active" >
+                    <img [src]="item.imageCover" class="w-100" alt="imgs of items">
+                    <h4 class="fs-6 text-main">{{item.category.name}}</h4>
+                    <h3 class="fs-4">{{item.title | textCutting}}</h3>
+                    <div class="d-flex justify-content-between"> 
+                        <span> {{item.price | currency:'EGP' }}</span>
+                        <span> {{item.ratingsAverage }} <i class="fa-solid fa-star rating-color"></i></span>
+                    </div>
+                </div>
+                <i role="button" *ngIf="!wishListData.includes(item.id)"  class="fa-solid fa-heart btn border-0 me-auto fs-3" (click)="addWishList(item.id)"></i>
+                <i role="button" *ngIf="wishListData.includes(item.id)"  class="fa-solid fa-heart btn border-0 me-auto fs-3 text-danger" (click)="removeWishList(item.id)"></i>
+                <button class="my-1 main-btn px-5 my-2 w-100" (click)="openCart(item.id)">+Add to cart</button>
+            </div>
+        </div>
+    </div>
+    
+</section>

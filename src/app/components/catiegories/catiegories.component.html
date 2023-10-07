@@ -1,0 +1,13 @@
+<section>
+    <div class="container pt-5">
+        <h1 class="text-main  text-center fw-bold py-3">Our Categories</h1>
+        <div class="row g-3">
+            <div class="col-sm-12 col-md-4 pt-3 " *ngFor="let item of categoriesData">
+                <div class="card-item border rounded rounded-2 card">
+                    <img [src]="item.image" class="w-100 border" alt="{{item.name}}" style="height: 18.6rem;" title="{{item.name}}">
+                    <h2 class="card-color">{{item.name}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

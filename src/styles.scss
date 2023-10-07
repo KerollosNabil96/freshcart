@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(10, 29, 48, 0.14) 0px 4px 5px 0px,
+  rgba(21, 62, 103, 0.12)0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.8s;
+
+body {
+    font-family: $font-family;
+}
+
+.active-link {
+    background-color: $main-color;
+    color: #fff !important;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+.rating-color {
+    color: $rating-color;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+  }
+
+  .text-main {
+    color: $main-color;
+  }
+  
+  .text-main-light {
+    color: $light-color;
+  }
+  
+  .bg-main {
+    background-color: $main-color !important;
+  }
+  
+  .bg-main-light {
+    background-color: $light-color !important;
+  }
+
+.main-btn {
+    border: unset;
+    cursor: pointer;
+    color: #fff !important;
+    background-color: $main-color !important;
+    padding: 4px 8px;
+    transition: background-color $main-transition;
+    border-radius: 5px;
+
+    &:hover {
+    background-color: #08e208 !important;
+    }
+
+    &:disabled {
+    background-color: #067a0663 !important;
+    color: #ffffff8e !important;
+    cursor: not-allowed;
+    }
+}
+input:focus {
+    box-shadow: 0 0 0 0.25rem rgb(10 173 10 / 39%) !important;
+    border-color: #0aad0a !important;
+}
+.card-color{
+  color: #198754;
+  font-weight: 600;
+  text-align: center;
+  font-size:30px;
+  padding-block: 7px;
+}

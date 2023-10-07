@@ -1,0 +1,33 @@
+<section class="rounded shadow w-75 mx-auto p-3 pg-main-light mt-5">
+    <h1>Shop Cart :</h1>
+    <div class="card-text d-flex justify-content-between">
+        <div>
+            <p class="text-dark"> Total price : <span class="text-main fw-bolder">{{cardData.data.totalCartPrice}}</span> </p>
+        </div>
+        <div>
+            <p>total number of items: <span class="text-main fw-bolder">{{cardData.numOfCartItems}}</span></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row border-bottom" *ngFor="let item of cardData.data.products">
+            <div class="col-md-2 my-2">
+                <img [src]="item.product.imageCover" class="w-100" alt="">
+            </div>
+            <div class="col-md-10 d-flex justify-content-between align-items-center"  >
+                <div>
+                    <h2 class="pt-2">{{item.product.title}}</h2>
+                    <p class="text-main">price : {{item.price}} EGP</p>
+                    <button class="fas fa-trash-can btn text-danger p-0 m-0" role="button" (click)="deleteCartItem(item.product.id)"> <span class="px-1 fs-6">Remove</span></button>
+                </div>
+                <div class="d-flex">
+                    <button class="btn btn-sm border mx-1 main-btn" (click)="increaseItem(item.product.id , item.count +1)">+</button>
+                    <span>{{item.count}}</span>
+                    <button class="main-btn btn btn-sm border mx-1" (click)="reduceItem(item.product.id , item.count -1)">-</button>
+                </div>
+
+            </div>
+        </div>
+        <button [routerLink]="['/payment' , cardData.data._id ]" routerLinkActive="router-link-active"  class="main-btn btn my-3 p-3 fw-bold">Online Payment <i class="px-1 text-primary fs-3 fa-brands fa-cc-visa"></i> </button>
+
+    </div>
+</section>
